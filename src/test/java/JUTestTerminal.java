@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.*;
 
-    public class JUNew  {
+    public class JUTestTerminal {
 
         @BeforeAll
         static void beforeAll() {
