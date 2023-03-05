@@ -1,3 +1,5 @@
+package TestLesson;
+
 import org.junit.jupiter.api.*;
 
     public class JUTestTerminal {
