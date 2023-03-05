@@ -7,8 +7,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CheckingForCompletion {
+
     @BeforeAll
     static void beforeAll(){
+
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
     }
@@ -16,8 +18,6 @@ public class CheckingForCompletion {
 
 @Test
     void fillFromTest(){
-
-
 
     open ("/text-box");
     $("#userName").setValue("Sasha");
