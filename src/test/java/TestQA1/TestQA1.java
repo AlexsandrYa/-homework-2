@@ -23,7 +23,7 @@ public class TestQA1 {
     void TestQA1() {
         open("/automation-practice-form");
 
-        //Характеристики пользователя
+        //Данные пользователя
         $("#firstName").setValue("Sasha");
         $("#lastName").setValue("Yavtushenko");
         $("#userEmail").setValue("aassyy@yandex.ru");
@@ -34,9 +34,10 @@ public class TestQA1 {
         $("#gender-radio-1").parent().click();
 
         // Дата рождения
+        $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("December");
         $(".react-datepicker__year-select").selectOption("1991");
-        $(".day react-datepicker__day--016").click();
+        $(".react-datepicker__day--016").click();
 
 
         //$(by("class", "react-datepicker__year-select")).$(byText("1991")).click();
