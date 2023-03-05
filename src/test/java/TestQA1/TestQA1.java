@@ -66,8 +66,8 @@ public class TestQA1 {
         $(".modal-body").shouldHave(text("16 December "));
         $(".modal-body").shouldHave(text("Commerce"));
         $(".modal-body").shouldHave(text("Music"));
-        $(".modal-body").shouldHave(text("ToolForm.png"));
-        $(".modal-body").shouldHave(text("Moscow never sleep"));
+        $(".modal-body").shouldHave(text("img/1212.png"));
+        $(".modal-body").shouldHave(text("Krasnodar is the best city"));
         $(".modal-body").shouldHave(text("NCR Delhi"));
         $("#closeLargeModal").click();
 
