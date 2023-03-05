@@ -12,41 +12,42 @@ public class TestQA1 {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.browser = "Firefox";
         Configuration.baseUrl = "https://demoqa.com";
     }
 
     @Test
-    void TestQA1() {
+    void TestQA() {
         open("/automation-practice-form");
-        $("#firstName").setValue("TestFirstName");
-        $("#lastName").setValue("TestLastName");
-        $("#userEmail").setValue("testUserEmail@test.ru");
-        $("#genterWrapper").$(byText("Male")).click();;
-        $("#userNumber").setValue("1735342525");
+        $("#firstName").setValue("Sasha");
+        $("#lastName").setValue("Yavtushenko");
+        $("#userEmail").setValue("aassyy@yandex.ru");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("8988555777");
         $("#dateOfBirthInput").click();
-        $(by("class", "react-datepicker__year-select")).$(byText("1996")).click();
-        $(by("class", "react-datepicker__month-select")).$(byText("January")).click();
-        $(by("class", "react-datepicker__month-container")).$(byText("27")).click();
+        $(by("class", "react-datepicker__year-select")).$(byText("1991")).click();
+        $(by("class", "react-datepicker__month-select")).$(byText("December")).click();
+        $(by("class", "react-datepicker__month-container")).$(byText("16")).click();
 
 
-        $("#subjectsInput").setValue("History").pressEnter();
-        $("#hobbiesWrapper").$(byText("Music")).click();;
-        $("#uploadPicture").uploadFromClasspath("pictures/ToolForm.png");
+        $("#subjectsInput").setValue("Commerce").pressEnter();
+        $("#hobbiesWrapper").$(byText("Music")).click();
+        $("#uploadPicture").uploadFromClasspath("pictures/1212.png");
 
-        $("#currentAddress").setValue("Moscow never sleep");
+        $("#currentAddress").setValue("Krasnodar is the best city");
         $("#state").click();
         $("#state").$(byText("NCR")).click();
         $("#city").click();
         $("#city").$(byText("Delhi")).click();
         $("#submit").click();
 
-        //П
-        $(".modal-body").shouldHave(text("TestFirstName TestLastName"));
-        $(".modal-body").shouldHave(text("testUserEmail@test.ru"));
+        //Результаты заполнения
+        $(".modal-body").shouldHave(text("Sasha,Yavtushenko"));
+        $(".modal-body").shouldHave(text("aassyy@yandex.ru"));
         $(".modal-body").shouldHave(text("Male"));
-        $(".modal-body").shouldHave(text("1735342525"));
-        $(".modal-body").shouldHave(text("27 January "));
-        $(".modal-body").shouldHave(text("History"));
+        $(".modal-body").shouldHave(text("8988555777"));
+        $(".modal-body").shouldHave(text("16 December "));
+        $(".modal-body").shouldHave(text("Commerce"));
         $(".modal-body").shouldHave(text("Music"));
         $(".modal-body").shouldHave(text("ToolForm.png"));
         $(".modal-body").shouldHave(text("Moscow never sleep"));
@@ -59,4 +60,4 @@ public class TestQA1 {
 
     }
 }
-}
+
