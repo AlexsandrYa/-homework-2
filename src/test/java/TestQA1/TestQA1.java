@@ -15,32 +15,40 @@ public class TestQA1 {
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.browser = "Firefox"
+        Configuration.browser = "Firefox";
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
-    void TestQA() {
+    void MyTestQA() {
         open("/automation-practice-form");
 
         //Характеристики пользователя
         $("#firstName").setValue("Sasha");
         $("#lastName").setValue("Yavtushenko");
         $("#userEmail").setValue("aassyy@yandex.ru");
-        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("8988555777");
         $("#dateOfBirthInput").click();
 
-        // Дата рождения
-        $(by("class", "react-datepicker__year-select")).$(byText("1991")).click();
-        $(by("class", "react-datepicker__month-select")).$(byText("December")).click();
-        $(by("class", "react-datepicker__month-container")).$(byText("16")).click();
+        // Выбераем пол
+        $("#gender-radio-1").parent().click();
 
-        // Добовления характеристики
+        // Дата рождения
+        $(".react-datepicker__month-select").selectOption("December");
+        $(".react-datepicker__year-select").selectOption("1991");
+        $(".day react-datepicker__day--016").click();
+
+
+        //$(by("class", "react-datepicker__year-select")).$(byText("1991")).click();
+        //$(by("class", "react-datepicker__month-select")).$(byText("December")).click();
+        //$(by("class", "react-datepicker__month-container")).$(byText("16")).click();
+
+        // Добовления Subjects и Hobbies
         $("#subjectsInput").setValue("Commerce").pressEnter();
         $("#hobbiesWrapper").$(byText("Music")).click();
 
         //Загрузка файла
-        $("#uploadPicture").uploadFromClasspath("pictures/1212.png");
+        $("#uploadPicture").uploadFromClasspath("img/1212.png");
 
         //Добавление текущего адреса
         $("#currentAddress").setValue("Krasnodar is the best city");
