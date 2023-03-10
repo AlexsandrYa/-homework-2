@@ -27,7 +27,7 @@ public class WebFormsCompletionTests {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
-        //Данные пользователя
+        // Данные пользователя
         $("#firstName").setValue("Sasha");
         $("#lastName").setValue("Yavtushenko");
         $("#userEmail").setValue("aassyy@yandex.ru");
