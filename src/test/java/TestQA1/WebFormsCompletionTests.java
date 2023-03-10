@@ -4,13 +4,12 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
-public class TestQA1 {
+public class WebFormsCompletionTests {
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -20,8 +19,13 @@ public class TestQA1 {
     }
 
     @Test
-    void TestQA1() {
+    void testingWebForm() {
+
         open("/automation-practice-form");
+
+        // Устранение банеров
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
         //Данные пользователя
         $("#firstName").setValue("Sasha");
@@ -38,11 +42,6 @@ public class TestQA1 {
         $(".react-datepicker__month-select").selectOption("December");
         $(".react-datepicker__year-select").selectOption("1991");
         $(".react-datepicker__day--016").click();
-
-
-        //$(by("class", "react-datepicker__year-select")).$(byText("1991")).click();
-        //$(by("class", "react-datepicker__month-select")).$(byText("December")).click();
-        //$(by("class", "react-datepicker__month-container")).$(byText("16")).click();
 
         // Добовления Subjects и Hobbies
         $("#subjectsInput").setValue("Commerce").pressEnter();
@@ -72,10 +71,12 @@ public class TestQA1 {
         $(".modal-body").shouldHave(text("NCR Delhi"));
         $("#closeLargeModal").click();
 
-
-
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
 
 
     }
 }
+
+
 
